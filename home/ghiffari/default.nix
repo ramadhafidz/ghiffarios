@@ -1,15 +1,16 @@
 { ... }:
 
 {
-    imports = [
-        ./modules/desktop
-        ./modules/programs
-    ];
+  imports = [
+    ./modules/desktop
+    ./modules/programs
+    ./modules/development/neovim
+  ];
 
-    home.username = "ghiffari";
-    home.homeDirectory = "/home/ghiffari";
+  home.username = "ghiffari";
+  home.homeDirectory = "/home/ghiffari";
 
-    home.stateVersion = "26.05";
+  home.stateVersion = "26.05";
 
-    programs.home-manager.enable = true;
+  programs.home-manager.enable = true;
 }
