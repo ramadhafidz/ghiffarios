@@ -10,22 +10,39 @@
         };
     };
 
-    outputs = { self, nixpkgs, home-manager, ... }: {
-        nixosConfigurations.ghiffari-workstation = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
+    outputs = { self, nixpkgs, home-manager, ... }:
 
-            modules = [
-                ./hosts/ghiffari-workstation
+        let
+            mkHost = {
+                host,
+                home,
+                username ? "ghiffari",
+                system ? "x86_64-linux",
+            }:
 
-                home-manager.nixosModules.home-manager
+                nixpkgs.lib.nixosSystem {
+                    inherit system;
 
-                {
-                    home-manager.useGlobalPkgs = true;
-                    home-manager.useUserPackages = true;
+                    modules = [
+                        host
 
-                    home-manager.users.ghiffari = import ./home/ghiffari;
-                }
-            ];
+                        home-manager.nixosModules.home-manager
+
+                        {
+                            home-manager.useGlobalPkgs = true;
+                            home-manager.useUserPackages = true;
+
+                            home-manager.users.${username} = import home;
+                        }
+                    ];
+                };
+        in
+        {
+            nixosConfigurations = {
+                ghiffari-workstation = mkHost {
+                    host = ./hosts/ghiffari-workstation;
+                    home = ./home/ghiffari;
+                };
+            };
         };
-    };
 }
