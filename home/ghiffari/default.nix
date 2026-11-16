@@ -5,6 +5,7 @@
     ./modules/desktop
     ./modules/programs
     ./modules/development/neovim
+    ./modules/development/agy
   ];
 
   home.username = "ghiffari";
