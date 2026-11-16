@@ -29,3 +29,6 @@ Thumbs.db
 
 # Local machine data
 *.log
+
+# Machine-specific hardware configuration
+hosts/*/hardware-configuration.nix.local
