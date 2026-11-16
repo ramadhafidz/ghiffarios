@@ -4,10 +4,11 @@
     imports = [
         ./hardware-configuration.nix
 
-        ../../modules/core
-        ../../modules/desktop
-        ../../modules/security
-        ../../modules/hardware/nvidia.nix
+        ../../modules/nixos/core
+        ../../modules/nixos/desktop
+        ../../modules/nixos/security
+        ../../modules/nixos/users/ghiffari.nix
+        ../../modules/nixos/hardware/nvidia.nix
     ];
 
     boot.loader.systemd-boot.enable = true;

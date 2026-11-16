@@ -1,4 +1,3 @@
-
 {
     description = "GhiffariOS - Personal NixOS Configuration";
 
@@ -24,7 +23,7 @@
                     home-manager.useGlobalPkgs = true;
                     home-manager.useUserPackages = true;
 
-                    home-manager.users.ghiffari = import ./home/ghiffari.nix;
+                    home-manager.users.ghiffari = import ./home/ghiffari;
                 }
             ];
         };
