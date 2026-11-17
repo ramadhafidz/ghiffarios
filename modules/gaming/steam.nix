@@ -6,8 +6,6 @@
 
     # Wine for running Windows games (Genshin Impact, etc.)
     wine
-
-    # Additional Wine tools
     winetricks
     protonup-qt
 
@@ -29,11 +27,4 @@
     vulkan-tools
     vulkan-loader
   ];
-
-  # Steam configuration
-  programs.steam = {
-    enable = true;
-    gamescopeSupport = true;
-    remoteDesktopSupport = true;
-  };
 }
