@@ -26,6 +26,12 @@ Hard rules derived from `AGENTS.md`.
 - Discard uncommitted user work or reset the repo without approval
 - Run imperative system workarounds when declarative configuration exists
 
+## NixOS Module Arguments
+- `nixpkgs.lib.nixosSystem` accepts `specialArgs` (NOT `extraSpecialArgs`) to pass arguments to modules
+- Home Manager accepts `extraSpecialArgs` inside module config
+- Never confuse `specialArgs` vs `extraSpecialArgs` between NixOS and Home Manager
+- Always validate with `nix flake check --no-build` before declaring done
+
 ## Before declaring done
 1. Inspect the final diff
 2. Run the narrowest non-destructive check that exercises the change
