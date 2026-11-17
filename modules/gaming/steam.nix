@@ -4,6 +4,13 @@
   home.packages = with pkgs; [
     steam
 
+    # Wine for running Windows games (Genshin Impact, etc.)
+    wine
+
+    # Additional Wine tools
+    winetricks
+    protonup-qt
+
     # X11 libraries needed by Steam
     libXcursor
     libXrandr
@@ -22,4 +29,11 @@
     vulkan-tools
     vulkan-loader
   ];
+
+  # Steam configuration
+  programs.steam = {
+    enable = true;
+    gamescopeSupport = true;
+    remoteDesktopSupport = true;
+  };
 }
