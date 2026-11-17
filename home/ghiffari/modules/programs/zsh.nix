@@ -17,7 +17,7 @@
             share = true;
         };
 
-        initContent
+        initContent = ''
             # Disable the default prompt substitution noise; keep a clean two-line prompt
             autoload -Uz vcs_info
             precmd() { vcs_info }
