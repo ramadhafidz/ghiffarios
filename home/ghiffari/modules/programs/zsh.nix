@@ -23,7 +23,6 @@
         "colorful"
         "command-not-found"
       ];
-      theme = "robbyrussell";
       extraConfig = ''
         # Disable the default prompt substitution noise; keep a clean two-line prompt
         autoload -Uz vcs_info
@@ -49,11 +48,6 @@
       share = true;
       append = true;
     };
-
-    # Additional completions
-    completions = with pkgs; [
-      (pkgs.zshCompletions.override { zsh = pkgs.zsh; })
-    ];
   };
 
   home.packages = with pkgs; [
