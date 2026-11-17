@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../../modules/gaming
     ./modules/desktop
     ./modules/programs
     ./modules/programs/zsh.nix
