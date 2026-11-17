@@ -3,12 +3,12 @@
 {
   # 32-bit libraries required by Steam and many games
   environment.systemPackages = with pkgs; [
-    lib32zlib
-    lib32ncurses5
-    lib32libpulse
-    lib32libxkbcommon
-    lib32mesa
-    lib32libdrm
-    lib32vulkan
+    pkgsi686-linux.zlib
+    pkgsi686-linux.ncurses5
+    pkgsi686-linux.libpulse
+    pkgsi686-linux.libxkbcommon
+    pkgsi686-linux.mesa
+    pkgsi686-linux.libdrm
+    pkgsi686-linux.vulkan
   ];
 }
