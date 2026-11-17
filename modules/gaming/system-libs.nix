@@ -8,4 +8,12 @@
     winetricks
     protonup-qt
   ];
+
+  # Steam configuration with DWProton compatibility tools
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = [
+      pkgs.dwproton-bin
+    ];
+  };
 }
