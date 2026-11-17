@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   # Steam and Wine for gaming
@@ -13,7 +13,7 @@
   programs.steam = {
     enable = true;
     extraCompatPackages = [
-      pkgs.dwproton-bin
+      inputs.dwproton.packages.x86_64-linux.dw-proton
     ];
   };
 }

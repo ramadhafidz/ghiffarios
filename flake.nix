@@ -9,6 +9,11 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        dwproton = {
+            url = "github:imaviso/dwproton-flake";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
         oh-my-pi.url = "github:can1357/oh-my-pi";
     };
 
@@ -24,6 +29,10 @@
 
                 nixpkgs.lib.nixosSystem {
                     inherit system;
+
+                    extraSpecialArgs = {
+                        inherit inputs;
+                    };
 
                     modules = [
                         host
@@ -53,4 +62,3 @@
             };
         };
 }
-
