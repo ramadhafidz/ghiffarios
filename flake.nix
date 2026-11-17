@@ -14,10 +14,9 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        oh-my-pi.url = "github:can1357/oh-my-pi";
     };
 
-    outputs = inputs@{ self, nixpkgs, home-manager, oh-my-pi, ... }:
+    outputs = inputs@{ self, nixpkgs, home-manager, ... }:
 
         let
             mkHost = {
