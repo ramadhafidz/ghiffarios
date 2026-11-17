@@ -30,6 +30,10 @@
                 nixpkgs.lib.nixosSystem {
                     inherit system;
 
+                    extraSpecialArgs = {
+                        inherit inputs;
+                    };
+
                     modules = [
                         host
 
