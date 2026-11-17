@@ -4,9 +4,6 @@
   home.packages = with pkgs; [
     steam
 
-    # DWProton for anime games (Genshin Impact, etc.)
-    dwproton-bin
-
     # Wine for running Windows games
     wine
     winetricks
