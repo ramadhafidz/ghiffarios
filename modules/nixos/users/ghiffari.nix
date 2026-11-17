@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
     users.users.ghiffari = {
@@ -8,5 +8,6 @@
             "networkmanager"
             "wheel"
         ];
+        shell = pkgs.zsh;
     };
 }

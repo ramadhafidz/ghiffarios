@@ -4,6 +4,7 @@
   imports = [
     ./modules/desktop
     ./modules/programs
+    ./modules/programs/zsh.nix
     ./modules/development/neovim
     ./modules/development/agy
     ./modules/development/omp
