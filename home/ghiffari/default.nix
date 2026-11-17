@@ -6,6 +6,7 @@
     ./modules/programs
     ./modules/development/neovim
     ./modules/development/agy
+    ./modules/development/omp
   ];
 
   home.username = "ghiffari";

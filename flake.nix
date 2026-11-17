@@ -8,9 +8,11 @@
             url = "github:nix-community/home-manager/release-26.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        oh-my-pi.url = "github:can1357/oh-my-pi";
     };
 
-    outputs = { self, nixpkgs, home-manager, ... }:
+    outputs = inputs@{ self, nixpkgs, home-manager, oh-my-pi, ... }:
 
         let
             mkHost = {
@@ -32,6 +34,10 @@
                             home-manager.useGlobalPkgs = true;
                             home-manager.useUserPackages = true;
 
+                            home-manager.extraSpecialArgs = {
+                                inherit inputs;
+                            };
+
                             home-manager.users.${username} = import home;
                         }
                     ];
@@ -46,3 +52,4 @@
             };
         };
 }
+
