@@ -13,7 +13,6 @@
             url = "github:imaviso/dwproton-flake";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-
     };
 
     outputs = inputs@{ self, nixpkgs, home-manager, ... }:
