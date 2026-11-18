@@ -1,30 +1,15 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   home.packages = with pkgs; [
-    steam
-
-    # Wine for running Windows games
+    # Wine and helper tools for running Windows games
     wine
     winetricks
     protonup-qt
-
-    # X11 libraries needed by Steam
-    libXcursor
-    libXrandr
-    libXi
-    libXrender
-    libXinerama
-    libXcomposite
-    libXdamage
-    libXfixes
-    libXft
-    libXext
-
-    # Additional graphics libraries
-    libdrm
-    libglvnd
     vulkan-tools
-    vulkan-loader
   ];
+
+  # Symlink DWProton directly to Steam's compatibility tools directory
+  home.file.".local/share/Steam/compatibilitytools.d/DWProton".source =
+    inputs.dwproton.packages.${pkgs.stdenv.hostPlatform.system}.dw-proton.steamcompattool;
 }

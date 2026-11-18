@@ -2,26 +2,26 @@
 
 let
   version = "18.22.2";
-  omp = pkgs.stdenv.mkDerivation {
-    pname = "omp";
-    inherit version;
 
-    src = pkgs.fetchurl {
-      url = "https://github.com/can1357/oh-my-pi/releases/download/v${version}/omp-linux-x64";
-      hash = "sha256-gKaSxa25xxEkuxHne9fts8+Pu6tpgNsyBty2pMspBbU=";
-    };
+  rawBin = pkgs.fetchurl {
+    url = "https://github.com/can1357/oh-my-pi/releases/download/v${version}/omp-linux-x64";
+    hash = "sha256-gKaSxa25xxEkuxHne9fts8+Pu6tpgNsyBty2pMspBbU=";
+  };
 
-    nativeBuildInputs = [ pkgs.autoPatchelfHook ];
-    buildInputs = [
-      pkgs.stdenv.cc.cc.lib
-      pkgs.zlib
+  ompBin = pkgs.runCommand "omp-bin" { } ''
+    install -m755 -D ${rawBin} $out/bin/omp
+  '';
+
+  # Oh-my-pi is bundled as a Bun single-file executable. Running patchelf corrupts
+  # Bun's internal trailer/payload offsets (causing it to fall back to the raw Bun CLI).
+  # buildFHSEnv preserves the binary byte-for-byte in an FHS glibc environment.
+  omp = pkgs.buildFHSEnv {
+    name = "omp";
+    targetPkgs = pkgs: with pkgs; [
+      stdenv.cc.cc.lib
+      zlib
     ];
-
-    dontUnpack = true;
-
-    installPhase = ''
-      install -m755 -D $src $out/bin/omp
-    '';
+    runScript = "${ompBin}/bin/omp";
   };
 in
 {
@@ -29,4 +29,3 @@ in
     omp
   ];
 }
-
