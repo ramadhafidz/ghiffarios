@@ -1,0 +1,7 @@
+{
+  "name": "ghiffarios",
+  "displayName": "GhiffariOS",
+  "version": "1.0.0",
+  "description": "NixOS, Home Manager, and KDE Plasma skills, rules, and subagents for GhiffariOS.",
+  "author": "ghiffari"
+}
