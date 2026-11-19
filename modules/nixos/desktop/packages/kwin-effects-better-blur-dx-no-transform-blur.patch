@@ -1,0 +1,21 @@
+--- a/src/blur.cpp
++++ b/src/blur.cpp
+@@ -841,13 +841,12 @@
+     bool scaled = !qFuzzyCompare(data.xScale(), 1.0) && !qFuzzyCompare(data.yScale(), 1.0);
+     bool translated = data.xTranslation() || data.yTranslation();
+ 
+-    if ((scaled || (translated || (mask & PAINT_WINDOW_TRANSFORMED))) && !w->data(WindowForceBlurRole).toBool()) {
+-        // BBDX:
++    // Do not blur transformed windows. The blur is an axis-aligned region
++    // behind the window, so it cannot follow vertex deformations such as
++    // Wobbly Windows; forcing it would leave a static rectangular box around
++    // the deformed window. KWin's own blur effect skips these frames too.
++    if (scaled || translated || (mask & PAINT_WINDOW_TRANSFORMED)) {
+         m_windowManager->setWindowIsTransformed(w, true);
+-        if (m_windowManager->windowShouldBlurWhileTransformed(w)) {
+-            return true;
+-        }
+-
+         return false;
+     }
+     // BBDX:

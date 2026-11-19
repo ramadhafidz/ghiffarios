@@ -43,6 +43,10 @@ in
   imports = [
     ./konsole.nix
     ./kitty.nix
+    ./blur.nix
+    ./animations.nix
+    ./quickshell.nix
+    ./hyprland.nix
   ];
 
   home.packages = with pkgs; [

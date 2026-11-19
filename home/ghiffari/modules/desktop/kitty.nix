@@ -11,7 +11,7 @@
       enable_audio_bell = false;
       confirm_os_window_close = 0;
       window_padding_width = 8;
-      background_opacity = "0.95";
+      background_opacity = "0.88";
       scrollback_lines = 10000;
     };
   };
