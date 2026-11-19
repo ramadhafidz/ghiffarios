@@ -41,6 +41,26 @@
         "type": "github"
       }
     },
+    "latte-dock-ng": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795049667,
+        "narHash": "sha256-MDWJ0XAbDYgDbWkFcHBgCrRjc3e/E74pSmwbPsexeb0=",
+        "owner": "ruizhi-lab",
+        "repo": "latte-dock-ng",
+        "rev": "8b62f1c432f23d7bb88f965cae6683757b8cd4c4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ruizhi-lab",
+        "repo": "latte-dock-ng",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1794872590,
@@ -61,6 +81,7 @@
       "inputs": {
         "dwproton": "dwproton",
         "home-manager": "home-manager",
+        "latte-dock-ng": "latte-dock-ng",
         "nixpkgs": "nixpkgs"
       }
     }

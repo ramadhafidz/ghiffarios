@@ -13,6 +13,13 @@
             url = "github:imaviso/dwproton-flake";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        # Wayland-native Latte Dock fork; follows our nixpkgs so it builds
+        # against the same Plasma 6.6 ABI as the running session.
+        latte-dock-ng = {
+            url = "github:ruizhi-lab/latte-dock-ng";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = inputs@{ self, nixpkgs, home-manager, ... }:
@@ -33,6 +40,8 @@
 
                     modules = [
                         host
+
+                        inputs.latte-dock-ng.nixosModules.default
 
                         home-manager.nixosModules.home-manager
 

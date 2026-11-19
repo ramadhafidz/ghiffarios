@@ -45,11 +45,14 @@ in
     ./kitty.nix
     ./blur.nix
     ./animations.nix
+    ./dock.nix
     ./quickshell.nix
     ./hyprland.nix
   ];
 
   home.packages = with pkgs; [
+    latte-dock-ng
+    wl-clipboard
     kdePackages.kate
     nerd-fonts.jetbrains-mono
     openDyslexicNerdFont

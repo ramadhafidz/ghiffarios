@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   agyWrapper = pkgs.writeShellScriptBin "agy" ''
@@ -10,6 +10,8 @@ let
         exit 127
     fi
 
+    export PATH="${lib.makeBinPath [ pkgs.wl-clipboard ]}:$PATH"
+
     exec "$GLIBC/lib64/ld-linux-x86-64.so.2" \
         --library-path "$GLIBC/lib" \
         "$AGY_BINARY" "$@"
@@ -18,5 +20,6 @@ in
 {
   home.packages = [
     agyWrapper
+    pkgs.wl-clipboard
   ];
 }
