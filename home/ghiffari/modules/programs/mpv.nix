@@ -102,7 +102,18 @@ let
     fi
 
     echo "▶ Memutar ''${#urls[@]} video di MPV..."
-    exec ${pkgs.mpv}/bin/mpv "''${mpv_args[@]}" "''${urls[@]}"
+    mpv_status=0
+    "${pkgs.mpv}/bin/mpv" "''${mpv_args[@]}" "''${urls[@]}" || mpv_status=$?
+
+    # Jika pemutaran gagal (misal YouTube memblokir format tertentu dengan 403 Forbidden / SABR)
+    if [[ "$mpv_status" -ne 0 ]]; then
+      echo ""
+      echo "⚠️ Stream video ini dibatasi server YouTube (403 Forbidden / SABR)."
+      echo "🔄 Mengalihkan otomatis ke fallback client Android..."
+      exec "${pkgs.mpv}/bin/mpv" \
+        --ytdl-raw-options="extractor-args=youtube:player-client=android" \
+        "''${mpv_args[@]}" "''${urls[@]}"
+    fi
   '';
 in
 {

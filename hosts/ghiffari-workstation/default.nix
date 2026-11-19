@@ -14,6 +14,8 @@
         ./hardware/nvidia.nix
         ./hardware/intel-fallback.nix
         ./hardware/udev.nix
+        ./hardware/bluetooth.nix
+        ./hardware/controllers.nix
     ];
 
     boot.loader.systemd-boot.enable = true;
