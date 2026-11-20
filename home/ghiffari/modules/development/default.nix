@@ -9,5 +9,6 @@
     ./neovim
     ./agy
     ./omp
+    ./claude-code
   ];
 }
