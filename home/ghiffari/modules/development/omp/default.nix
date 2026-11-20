@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  version = "18.22.2";
+  version = "19.0.1";
 
   rawBin = pkgs.fetchurl {
     url = "https://github.com/can1357/oh-my-pi/releases/download/v${version}/omp-linux-x64";
