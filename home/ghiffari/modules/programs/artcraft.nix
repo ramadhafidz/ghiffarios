@@ -29,6 +29,7 @@ let
         libxcursor
         libxi
         libxrandr
+        alsa-lib
       ];
 
       sourceRoot = ".";
