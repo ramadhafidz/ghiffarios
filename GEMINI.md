@@ -14,6 +14,8 @@ Custom subagents live in `.agents/agents/`:
 - `nix-implementer` — writing and refactoring Nix configuration
 - `desktop-specialist` — KDE Plasma and desktop environment configuration
 - `app-integrator` — adding applications at the correct scope
+- `gaming-specialist` — gaming optimization, Proton/Wine, MangoHud, and GameMode
+- `security-specialist` — security hardening, SSH, 1Password, polkit, and secrets
 - `reviewer` — correctness, safety, and regression review
 
 ## Skills
@@ -24,4 +26,8 @@ before modifying that area; they encode validated project conventions:
 - `app-installation` — How to add applications at the correct scope (system vs user level)
 - `kde-ricing` — KDE Plasma theming, appearance, and desktop customization conventions
 - `hardware-management` — Rules for host hardware configuration, GPU, boot, and kernel settings
+- `gaming-setup` — Conventions for GameMode, MangoHud HUD layouts, Proton/Wine, and gaming tuning
+- `dev-environments` — Conventions for project dev shells, direnv with nix-direnv caching, and dev tools
+- `system-maintenance` — Procedures for SSD fstrim, Btrfs scrub, Nix store garbage collection, and deduplication
+- `security-and-secrets` — Conventions for 1Password integration, SSH agent, Git commit signing, and firewall rules
 - `system-validation` — Non-activating validation and activation boundaries for NixOS changes
