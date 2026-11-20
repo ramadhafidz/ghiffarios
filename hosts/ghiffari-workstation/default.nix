@@ -5,6 +5,7 @@
         ./hardware-configuration.nix
 
         ../../modules/nixos/core
+        ../../modules/nixos/networking
         ../../modules/nixos/desktop
         ../../modules/nixos/security
         ../../modules/nixos/services

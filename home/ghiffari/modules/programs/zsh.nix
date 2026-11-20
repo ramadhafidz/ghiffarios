@@ -50,6 +50,28 @@
         export POKEMON_FETCH_RUN=1
         pokefetch
       fi
+
+      # SpoofDPI anti-censorship proxy helpers (127.0.0.1:8088)
+      proxy-on() {
+        export http_proxy="http://127.0.0.1:8088"
+        export https_proxy="http://127.0.0.1:8088"
+        export all_proxy="http://127.0.0.1:8088"
+        export HTTP_PROXY="http://127.0.0.1:8088"
+        export HTTPS_PROXY="http://127.0.0.1:8088"
+        export ALL_PROXY="http://127.0.0.1:8088"
+        echo "Proxy enabled -> http://127.0.0.1:8088"
+      }
+      proxy-off() {
+        unset http_proxy https_proxy all_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY
+        echo "Proxy disabled"
+      }
+      proxy-status() {
+        if [[ -n "$http_proxy" ]]; then
+          echo "Proxy active: $http_proxy"
+        else
+          echo "Proxy inactive (direct connection)"
+        fi
+      }
     '';
   };
 
