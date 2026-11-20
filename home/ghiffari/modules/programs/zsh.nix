@@ -25,7 +25,11 @@
     };
 
     shellAliases = {
-      ll = "ls -la";
+      ls = "eza";
+      ll = "eza -la --icons --git";
+      tree = "eza --tree --icons";
+      cat = "bat";
+      lg = "lazygit";
       update = "sudo nixos-rebuild switch --flake ~/Workspace/github/ghiffarios#ghiffari-workstation";
       g = "git";
       gco = "git checkout";

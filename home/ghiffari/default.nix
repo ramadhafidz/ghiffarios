@@ -7,9 +7,7 @@
     ./modules/programs
     ./modules/programs/zsh.nix
     ./modules/programs/fastfetch.nix
-    ./modules/development/neovim
-    ./modules/development/agy
-    ./modules/development/omp
+    ./modules/development
   ];
 
   home.username = "ghiffari";
