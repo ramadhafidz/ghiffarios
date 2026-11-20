@@ -4,6 +4,7 @@
     imports = [
         ./mpv.nix
         ./arrpc.nix
+        ./artcraft.nix
     ];
 
     home.packages = with pkgs; [
