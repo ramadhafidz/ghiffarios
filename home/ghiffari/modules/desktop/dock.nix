@@ -13,7 +13,7 @@ in
       After = [ "plasma-workspace.target" ];
     };
     Service = {
-      ExecStart = "${pkgs.latte-dock-ng}/bin/latte-dock-ng";
+      ExecStart = "${pkgs.latte-dock-ng}/bin/latte-dock-ng --replace";
       Restart = "on-failure";
       RestartSec = 3;
     };
@@ -25,6 +25,10 @@ in
   home.activation.configureLatteDock = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     LATTE_DIR="$HOME/.config/latte"
     TEMPLATE="${pkgs.latte-dock-ng}/share/plasma/shells/org.kde.latte.shell/contents/templates/Default.layout.latte"
+
+    # Remove KDE desktop autostart entry to prevent duplicate instances
+    # (autostart is fully managed by systemd user service above)
+    rm -f "$HOME/.config/autostart/org.kde.latte-dock.desktop"
 
     mkdir -p "$LATTE_DIR"
     if [ ! -f "$LATTE_DIR/My Layout.layout.latte" ] && [ -f "$TEMPLATE" ]; then

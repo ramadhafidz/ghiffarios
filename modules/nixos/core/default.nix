@@ -14,5 +14,26 @@
         "flakes"
     ];
 
+    # Otomatisasi pembersihan storage & deduplikasi file di /nix/store
+    nix.gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 7d";
+    };
+
+    nix.optimise.automatic = true;
+
+    # Pemeliharaan SSD & Filesystem
+    services.fstrim = {
+        enable = true;
+        interval = "weekly";
+    };
+
+    services.btrfs.autoScrub = {
+        enable = true;
+        interval = "monthly";
+        fileSystems = [ "/" ];
+    };
+
     nixpkgs.config.allowUnfree = true;
 }
